@@ -1,0 +1,48 @@
+div.mw-ext-src {
+	margin: 1em 0 1em;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	border: 1px solid #ddd;
+	.mw-ext-src-header {
+		overflow: hidden;
+		padding: .4em .8em;
+		background: #f5f5f5;
+		border-bottom: 1px solid #ddd;
+		font-family: 'Fira Mono', monospace;
+		.mw-ext-src-title {
+			float: left;
+		}
+		.mw-ext-src-lang {
+			float: right;
+			text-transform: uppercase;
+		}
+	}
+	pre {
+		display: block;
+		margin: 0;
+		padding: 0;
+		white-space: pre;
+		border: 1px solid #fff;
+		line-height: 1.5;
+		code {
+			display: block;
+			//font-family: 'Fira Mono', monospace;
+			max-height: 50em;
+			overflow: auto;
+			border: none;
+			padding: 1em;
+			border-radius: 0;
+		}
+	}
+}
+
+span.mw-ext-src {
+	display: inline-block;
+	code {
+		border: none;
+		padding: .1em .4em .1em;
+		border-radius: 3px;
+		&.hljs {
+			display: inline;
+		}
+	}
+}
