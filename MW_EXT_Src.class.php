@@ -1,9 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\MW_EXT_Src;
+
+use OutputPage, Parser, PPFrame, Skin;
+
 /**
  * Class MW_EXT_Src
  * ------------------------------------------------------------------------------------------------------------------ */
-
 class MW_EXT_Src {
 
 	/**
@@ -39,7 +42,7 @@ class MW_EXT_Src {
 	 * @param Parser $parser
 	 *
 	 * @return bool
-	 * @throws MWException
+	 * @throws \MWException
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
@@ -56,7 +59,7 @@ class MW_EXT_Src {
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
-	 * @return string
+	 * @return null|string
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onRenderTag( $input, $args = [], Parser $parser, PPFrame $frame ) {
@@ -93,7 +96,7 @@ class MW_EXT_Src {
 		} else {
 			$parser->addTrackingCategory( 'mw-ext-src-error-category' );
 
-			return false;
+			return null;
 		}
 
 		// Out parser.
@@ -112,8 +115,8 @@ class MW_EXT_Src {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
-		$out->addModuleStyles( array( 'ext.mw.src.styles' ) );
-		$out->addModules( array( 'ext.mw.src' ) );
+		$out->addModuleStyles( [ 'ext.mw.src.styles' ] );
+		$out->addModules( [ 'ext.mw.src' ] );
 
 		return true;
 	}
