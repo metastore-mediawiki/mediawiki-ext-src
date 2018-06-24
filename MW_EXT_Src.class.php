@@ -3,38 +3,12 @@
 namespace MediaWiki\Extension\MW_EXT_Src;
 
 use OutputPage, Parser, PPFrame, Skin;
+use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_Src
  * ------------------------------------------------------------------------------------------------------------------ */
 class MW_EXT_Src {
-
-	/**
-	 * Clear DATA (escape html).
-	 *
-	 * @param $string
-	 *
-	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
-	private static function clearData( $string ) {
-		$outString = htmlspecialchars( trim( $string ), ENT_QUOTES );
-
-		return $outString;
-	}
-
-	/**
-	 * Get MediaWiki message.
-	 *
-	 * @param $string
-	 *
-	 * @return string
-	 */
-	private static function getMsgText( $string ) {
-		$outString = wfMessage( 'mw-ext-src-' . $string )->inContentLanguage()->text();
-
-		return $outString;
-	}
 
 	/**
 	 * Register tag function.
@@ -64,22 +38,22 @@ class MW_EXT_Src {
 
 	public static function onRenderTag( $input, $args = [], Parser $parser, PPFrame $frame ) {
 		// Message: block title.
-		$msgTitle = self::getMsgText( 'block-title' );
+		$msgTitle = MW_EXT_Core::getMessageText( 'src', 'block-title' );
 
 		// Argument: type.
-		$getType = self::clearData( $args['type'] ?? '' ?: 'block' );
+		$getType = MW_EXT_Core::outClear( $args['type'] ?? '' ?: 'block' );
 		$outType = $getType;
 
 		// Argument: title.
-		$getTitle = self::clearData( $args['title'] ?? '' ?: $msgTitle );
+		$getTitle = MW_EXT_Core::outClear( $args['title'] ?? '' ?: $msgTitle );
 		$outTitle = $getTitle;
 
 		// Argument: lang.
-		$getLang = self::clearData( $args['lang'] ?? '' ?: 'none' );
+		$getLang = MW_EXT_Core::outClear( $args['lang'] ?? '' ?: 'none' );
 		$outLang = $getLang;
 
 		// Get content.
-		$getContent = self::clearData( $input );
+		$getContent = MW_EXT_Core::outClear( $input );
 		$outContent = $getContent;
 
 		// Out code class.

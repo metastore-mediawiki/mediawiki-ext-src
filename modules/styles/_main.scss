@@ -1,12 +1,12 @@
 div.mw-ext-src {
 	margin: 1em 0 1em;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-	border: 1px solid #ddd;
+	border: .1em solid #ddd;
 	.mw-ext-src-header {
 		overflow: hidden;
 		padding: .4em .8em;
 		background: #f5f5f5;
-		border-bottom: 1px solid #ddd;
+		border-bottom: .1em solid #ddd;
 		font-family: 'Fira Mono', monospace;
 		.mw-ext-src-title {
 			float: left;
@@ -21,7 +21,7 @@ div.mw-ext-src {
 		margin: 0;
 		padding: 0;
 		white-space: pre;
-		border: 1px solid #fff;
+		border: .1em solid #fff;
 		line-height: 1.5;
 		code {
 			display: block;
@@ -40,7 +40,7 @@ span.mw-ext-src {
 	code {
 		border: none;
 		padding: .1em .4em .1em;
-		border-radius: 3px;
+		border-radius: .4em;
 		&.hljs {
 			display: inline;
 		}
