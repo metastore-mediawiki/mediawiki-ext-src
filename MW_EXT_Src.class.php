@@ -61,7 +61,7 @@ class MW_EXT_Src {
 
 		// Out HTML.
 		if ( $outType === 'block' ) {
-			$outHTML = '<div class="mw-ext-src mw-ext-src-block">';
+			$outHTML = '<div class="mw-ext-src mw-ext-src-block navigation-not-searchable">';
 			$outHTML .= '<div class="mw-ext-src-header"><div class="mw-ext-src-title">' . $outTitle . '</div><div class="mw-ext-src-lang">' . $outLang . '</div></div>';
 			$outHTML .= '<div class="mw-ext-src-content"><pre><code' . $outClass . '>' . $outContent . '</code></pre></div>';
 			$outHTML .= '</div>';
