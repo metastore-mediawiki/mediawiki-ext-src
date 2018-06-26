@@ -20,7 +20,7 @@ class MW_EXT_Src {
 	 * -------------------------------------------------------------------------------------------------------------- */
 
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'src', __CLASS__ . '::onRenderTag' );
+		$parser->setHook( 'src', [ __CLASS__, 'onRenderTag' ] );
 
 		return true;
 	}
