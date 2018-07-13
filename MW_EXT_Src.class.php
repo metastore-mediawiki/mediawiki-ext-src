@@ -7,7 +7,7 @@ use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
 
 /**
  * Class MW_EXT_Src
- * ------------------------------------------------------------------------------------------------------------------ */
+ */
 class MW_EXT_Src {
 
 	/**
@@ -17,8 +17,7 @@ class MW_EXT_Src {
 	 *
 	 * @return bool
 	 * @throws \MWException
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->setHook( 'src', [ __CLASS__, 'onRenderTag' ] );
 
@@ -34,8 +33,7 @@ class MW_EXT_Src {
 	 * @param PPFrame $frame
 	 *
 	 * @return null|string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onRenderTag( $input, $args = [], Parser $parser, PPFrame $frame ) {
 		// Message: block title.
 		$msgTitle = MW_EXT_Core::getMessageText( 'src', 'block-title' );
@@ -86,8 +84,7 @@ class MW_EXT_Src {
 	 * @param Skin $skin
 	 *
 	 * @return bool
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
 		$out->addModuleStyles( [ 'ext.mw.src.styles' ] );
 		$out->addModules( [ 'ext.mw.src' ] );
