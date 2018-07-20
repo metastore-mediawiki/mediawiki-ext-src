@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\MW_EXT_Src;
 
 use OutputPage, Parser, PPFrame, Skin;
-use MediaWiki\Extension\MW_EXT_Core\MW_EXT_Core;
+use MediaWiki\Extension\MW_EXT_Kernel\MW_EXT_Kernel;
 
 /**
  * Class MW_EXT_Src
@@ -36,22 +36,22 @@ class MW_EXT_Src {
 	 */
 	public static function onRenderTag( $input, $args = [], Parser $parser, PPFrame $frame ) {
 		// Message: block title.
-		$msgTitle = MW_EXT_Core::getMessageText( 'src', 'block-title' );
+		$msgTitle = MW_EXT_Kernel::getMessageText( 'src', 'block-title' );
 
 		// Argument: type.
-		$getType = MW_EXT_Core::outClear( $args['type'] ?? '' ?: 'block' );
+		$getType = MW_EXT_Kernel::outClear( $args['type'] ?? '' ?: 'block' );
 		$outType = $getType;
 
 		// Argument: title.
-		$getTitle = MW_EXT_Core::outClear( $args['title'] ?? '' ?: $msgTitle );
+		$getTitle = MW_EXT_Kernel::outClear( $args['title'] ?? '' ?: $msgTitle );
 		$outTitle = $getTitle;
 
 		// Argument: lang.
-		$getLang = MW_EXT_Core::outClear( $args['lang'] ?? '' ?: 'none' );
+		$getLang = MW_EXT_Kernel::outClear( $args['lang'] ?? '' ?: 'none' );
 		$outLang = $getLang;
 
 		// Get content.
-		$getContent = MW_EXT_Core::outClear( $input );
+		$getContent = MW_EXT_Kernel::outClear( $input );
 		$outContent = $getContent;
 
 		// Out code class.
