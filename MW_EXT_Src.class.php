@@ -27,13 +27,13 @@ class MW_EXT_Src {
 	 * Render tag function.
 	 *
 	 * @param $input
+	 * @param array $args
 	 * @param Parser $parser
 	 * @param PPFrame $frame
-	 * @param array $args
 	 *
 	 * @return null|string
 	 */
-	public static function onRenderTag( $input, Parser $parser, PPFrame $frame, $args = [] ) {
+	public static function onRenderTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		// Message: block title.
 		$msgTitle = MW_EXT_Kernel::getMessageText( 'src', 'block-title' );
 
